@@ -23,20 +23,24 @@ algorithm-2 (A: Array [1 ... n] of integer)
 4           if A[i] < 0
 5               negatives.append(i)
 6               m = m + 1
-7       smallest := nil
-8       ind_l := nil
-9       ind_r := nil
-10      current := 0
-11      for i := 1 to (m-1)
-12          for j := i to (m-1)
-13              for k := negatives[i] to negatives[j]
-14                  current := current + A[k]
-15              if smallest = nil or smallest > current
-16                  smallest := current
-17                  ind_l := i
-18                  ind_r := j
-19              current := 0
-20      return (smallest, ind_l, ind_r)
+7           if A[i] < smallest
+8               smallest := A[i]
+9               ind_l := i
+10              ind_r := i
+11      smallest := nil
+12      ind_l := nil
+13      ind_r := nil
+14      current := 0
+15      for i := 1 to (m-1)
+16          for j := i to (m-1)
+17              for k := negatives[i] to negatives[j]
+18                  current := current + A[k]
+19              if smallest = nil or smallest > current
+20                  smallest := current
+21                  ind_l := i
+22                  ind_r := j
+23              current := 0
+24      return (smallest, ind_l, ind_r)
 
 
 

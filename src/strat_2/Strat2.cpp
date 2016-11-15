@@ -21,6 +21,12 @@ int Strat2::run(std::vector<int> values, size_t &index_l, size_t &index_r) {
 			if (values[i] < 0) {
 				negative_indices.push_back(i);
 			}
+
+			if (values[i] < smallest) {
+				smallest = values[i];
+				ind_l = i;
+				ind_r = i;
+			}
 		}
 
 		for (size_t i = 0; i < negative_indices.size(); i++) {
