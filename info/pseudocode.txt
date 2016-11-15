@@ -48,7 +48,7 @@ algorithm-3 (A: Array [l ... r] of integer)
 5       bot_ind_l := nil
 6       bot_ind_r := nil
 7       if l = r
-8           return (A[l], l, r)
+8           return (A[l], l + 1, r + 1)
 9       current := 0
 10      for i := l to (r-1)
 11          current := current + A[i]
@@ -57,6 +57,6 @@ algorithm-3 (A: Array [l ... r] of integer)
 14      if current < top_smallest and current < bot_smallest
 15          return (current, l, r)
 16      else if top_smallest < current and top_smallest < bot_smallest
-17          return (top_smallest, top_ind_l, top_ind_r)
+17          return (top_smallest, top_ind_l + 1, top_ind_r + 1)
 18      else
-19          return (bot_smallest, bot_ind_l, bot_ind_r)
+19          return (bot_smallest, bot_ind_l + 1, bot_ind_r + 1)
