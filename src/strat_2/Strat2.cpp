@@ -7,6 +7,7 @@
 
 int Strat2::run(int *int_arr, size_t count, size_t &index_l, size_t &index_r) {
 	std::vector<size_t> negative_indices;
+	size_t ind_l = 0, ind_r = count - 1;
 
 	for (size_t i = 0; i < count; i++) {
 		if (int_arr[i] < 0) {
@@ -24,13 +25,20 @@ int Strat2::run(int *int_arr, size_t count, size_t &index_l, size_t &index_r) {
 
 			if (smallest == NULL || smallest > current) {
 				smallest = current;
-				index_l = i;
-				index_r = j;
+				ind_l = i;
+				ind_r = j;
 			}
 
 			current = 0;
 		}
 	}
+
+	this->smallest = smallest;
+	this->range.first = ind_l;
+	this->range.second = ind_r;
+
+	index_l = ind_l;
+	index_r = ind_r;
 
 	return smallest;
 }
