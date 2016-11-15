@@ -47,31 +47,29 @@ algorithm-2 (A: Array [1 ... n] of integer)
 algorithm-3 (A: Array [l ... r] of integer)
 1       smallest_ending_here := 0
 2       ind_l_ending_here := nil
-3       ind_r_ending_here := nil
-4       smallest := 0
-5       ind_l := nil
-6       ind_r := nil
-7       has_negative := false
-8       for i := 1 to (n-1)
-9           if A[i] < 0
-10              has_negative := true
-11              break
-12          if A[i] < smallest
-13              smallest := A[i]
-14              ind_l := i
-15              ind_r := i
-16      if !has_negative
-17          return (smallest, ind_l, ind_r)
-18      for i := 1 to (n-1)
-19          smallest_ending_here = smallest_ending_here + A[i]
-20          if smallest_ending_here > 0
-21              smallest_ending_here = 0
-22              ind_l_ending_here = i + 1
-23              ind_r_ending_here = ind_l_ending_here
-24          if smallest > smallest_ending_here
-25              smallest := smallest_ending_here
-26              ind_l := ind_l_ending_here
-27              ind_r := i
-28          if smallest > A[i]
-29              smallest := A[i]
-30      return (smallest, ind_l, ind_r)
+3       smallest := 0
+4       ind_l := nil
+5       ind_r := nil
+6       has_negative := false
+7       for i := 1 to (n-1)
+8           if A[i] < 0
+9               has_negative := true
+10              break
+11          if A[i] < smallest
+12              smallest := A[i]
+13              ind_l := i
+14              ind_r := i
+15      if !has_negative
+16          return (smallest, ind_l, ind_r)
+17      for i := 1 to (n-1)
+18          smallest_ending_here = smallest_ending_here + A[i]
+19          if smallest_ending_here > 0
+20              smallest_ending_here = 0
+21              ind_l_ending_here = i + 1
+22          if smallest > smallest_ending_here
+23              smallest := smallest_ending_here
+24              ind_l := ind_l_ending_here
+25              ind_r := i
+26          if smallest > A[i]
+27              smallest := A[i]
+28      return (smallest, ind_l, ind_r)

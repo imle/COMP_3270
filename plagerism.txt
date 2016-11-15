@@ -1,0 +1,47 @@
+Steven Imle
+ski0005@auburn.edu
+
+info
+ |- pseudocode.txt
+ |- specification.pdf
+ |- strategies.md
+
+src
+ |- strat_1
+ |   |- Strat1.cpp
+ |   |- Strat1.h
+ |- strat_2
+ |   |- Strat2.cpp
+ |   |- Strat2.h
+ |- strat_3
+ |   |- Strat3.cpp
+ |   |- Strat3.h
+ |- AbstractStrategy.h
+ |- ArgParser.cpp
+ |- ArgParser.h
+ |- err_codes.cpp
+ |- err_codes.h
+ |- FileHandler.cpp
+ |- FileHandler.h
+ |- StrategyTester.cpp
+ |- StrategyTester.h
+ |- ValueGenerator.cpp
+ |- ValueGenerator.h
+
+
+Compilation
+The source code for this project was developed in CLion 2016.3 EAP.
+The project can be compiled by typing `make` in the root directory.
+
+The `*.md` files within the project may be more easily viewed using one
+of the two following links if your editor does not have markdown support.
+
+* http://dillinger.io/
+* https://jbt.github.io/markdown-editor/
+
+
+
+
+NO-PLAGIARISM CERTIFICATION: I certify that I wrote the code I am submitting. I did not copy whole or parts of it
+from another student or have another person write the code for me. Any code I am reusing in my program is clearly
+marked as such with its source clearly identified in comments.
