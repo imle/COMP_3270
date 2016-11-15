@@ -9,9 +9,13 @@
 #include <vector>
 #include "../AbstractStrategy.h"
 
+typedef std::vector<int>::iterator vec_iter;
+
 class Strat3 : public AbstractStrategy {
 public:
 	int run(std::vector<int> values, size_t &index_l, size_t &index_r) override;
+
+	int recursive_call(vec_iter left, vec_iter right, size_t &index_l, size_t &index_r);
 };
 
 
