@@ -8,7 +8,7 @@ int Strat1::run(int *int_arr, size_t count, size_t &index_l, size_t &index_r) {
 	int smallest = NULL, current = 0;
 
 	for (size_t i = 0; i < count; i++) {
-		for (size_t j = 0; j < count; j++) {
+		for (size_t j = i; j < count; j++) {
 			for (size_t k = i; k < j; k++) {
 				current += int_arr[k];
 			}
