@@ -4,10 +4,11 @@
 
 #include <cstdlib>
 #include "Strat3.h"
+#include "../err_codes.h"
 
 int Strat3::run(std::vector<int> values, size_t &index_l, size_t &index_r) {
 	if (values.size() == 0) {
-		std::exit(1);
+		printErrorAndExit(INVALID_VALUE_ARRAY);
 	}
 
 	size_t ind_l = 0, ind_r = values.size() - 1;

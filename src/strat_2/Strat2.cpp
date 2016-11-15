@@ -4,10 +4,11 @@
 
 #include <cstdlib>
 #include "Strat2.h"
+#include "../err_codes.h"
 
 int Strat2::run(std::vector<int> values, size_t &index_l, size_t &index_r) {
 	if (values.size() == 0) {
-		std::exit(1);
+		printErrorAndExit(INVALID_VALUE_ARRAY);
 	}
 
 	int smallest = values[0], current = 0;
