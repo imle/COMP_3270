@@ -41,22 +41,28 @@ algorithm-2 (A: Array [1 ... n] of integer)
 
 
 algorithm-3 (A: Array [l ... r] of integer)
-1       top_smallest := nil
-2       top_ind_l := nil
-3       top_ind_r := nil
-4       bot_smallest := nil
-5       bot_ind_l := nil
-6       bot_ind_r := nil
-7       if l = r
-8           return (A[l], l + 1, r + 1)
-9       current := 0
-10      for i := l to (r-1)
-11          current := current + A[i]
-12      (top_smallest, top_ind_l, top_ind_r) := algorithm-3(A[l ... r-1])
-13      (bot_smallest, bot_ind_l, bot_ind_r) := algorithm-3(A[l+1 ... r])
-14      if current < top_smallest and current < bot_smallest
-15          return (current, l, r)
-16      else if top_smallest < current and top_smallest < bot_smallest
-17          return (top_smallest, top_ind_l + 1, top_ind_r + 1)
-18      else
-19          return (bot_smallest, bot_ind_l + 1, bot_ind_r + 1)
+    smallest_ending_here := 0
+    ind_l_ending_here := nil
+    ind_r_ending_here := nil
+
+    smallest := 0
+    ind_l := nil
+    ind_r := nil
+
+    for i := 1 to (n-1)
+        smallest_ending_here = smallest_ending_here + A[i]
+
+        if smallest_ending_here > 0
+            smallest_ending_here = 0
+            ind_l_ending_here = i + 1
+            ind_r_ending_here = ind_l_ending_here
+
+        if smallest > smallest_ending_here
+            smallest := smallest_ending_here
+            ind_l := ind_l_ending_here
+            ind_r := i
+
+        if smallest > A[i]
+            smallest := A[i]
+
+    return (smallest, ind_l, ind_r)
