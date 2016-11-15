@@ -12,12 +12,15 @@ class ArgParser {
 private:
 	std::string file_name_input;
 	std::string file_name_output;
+	std::string file_name_time;
 public:
 	ArgParser(int argc, char *argv[]);
 
 	const std::string &getFileNameInput() const;
 
 	const std::string &getFileNameOutput() const;
+
+	const std::string &getFileNameTime() const;
 };
 
 

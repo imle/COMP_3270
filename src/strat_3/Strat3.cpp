@@ -16,50 +16,50 @@ int Strat3::run(std::vector<int> values, size_t &index_l, size_t &index_r) {
 	int smallest = values[0];
 	size_t ind_l = 0, ind_r = values.size() - 1;
 
-	if (values.size() != 1) {
-		for (size_t i = 0; i < values.size(); i++) {
-			if (values[i] < 0) {
-				has_negative = true;
-				break;
-			}
+	if (values.size() == 1) {
+		return smallest;
+	}
 
-			if (values[i] < smallest) {
-				smallest = values[i];
-				ind_l = i;
-				ind_r = i;
-			}
+	for (size_t i = 0; i < values.size(); i++) {
+		if (values[i] < 0) {
+			has_negative = true;
+			break;
 		}
 
-		if (has_negative) {
-			int smallest_ending_here = 0;
-			size_t ind_l_ending_here = 0;
-
-			for (size_t i = 0; i < values.size(); i++) {
-				smallest_ending_here += values[i];
-
-				if (smallest_ending_here > 0) {
-					smallest_ending_here = 0;
-					ind_l_ending_here = i + 1;
-				}
-
-				if (smallest > smallest_ending_here) {
-					smallest = smallest_ending_here;
-					ind_l = ind_l_ending_here;
-					ind_r = i;
-				}
-
-				if (smallest > values[i]) {
-					smallest = values[i];
-					ind_l = i;
-					ind_r = i;
-				}
-			}
+		if (values[i] < smallest) {
+			smallest = values[i];
+			ind_l = i;
+			ind_r = i;
 		}
 	}
 
-	this->smallest = smallest;
-	this->range.first = ind_l;
-	this->range.second = ind_r;
+	if (!has_negative) {
+		return smallest;
+	}
+
+	int smallest_ending_here = 0;
+	size_t ind_l_ending_here = 0;
+
+	for (size_t i = 0; i < values.size(); i++) {
+		smallest_ending_here += values[i];
+
+		if (smallest_ending_here > 0) {
+			smallest_ending_here = 0;
+			ind_l_ending_here = i + 1;
+		}
+
+		if (smallest > smallest_ending_here) {
+			smallest = smallest_ending_here;
+			ind_l = ind_l_ending_here;
+			ind_r = i;
+		}
+
+		if (smallest > values[i]) {
+			smallest = values[i];
+			ind_l = i;
+			ind_r = i;
+		}
+	}
 
 	index_l = ind_l;
 	index_r = ind_r;

@@ -14,6 +14,9 @@ void printErrorAndExit(ERR_CODE err_code) {
 		case FILE_FORMAT_INVALID:
 			std::cout << "FILE_FORMAT_INVALID";
 			break;
+		case INPUT_FILE_NOT_FOUND:
+			std::cout << "INPUT_FILE_NOT_FOUND";
+			break;
 	}
 
 	std::cout << std::endl;
