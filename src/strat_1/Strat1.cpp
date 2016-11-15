@@ -28,5 +28,8 @@ int Strat1::run(int *int_arr, size_t count, size_t &index_l, size_t &index_r) {
 	this->range.first = ind_l;
 	this->range.second = ind_r;
 
+	index_l = ind_l;
+	index_r = ind_r;
+
 	return smallest;
 }
