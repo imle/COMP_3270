@@ -5,12 +5,12 @@
 #include <vector>
 #include "Strat2.h"
 
-int Strat2::run(int *int_arr, size_t count, size_t &index_l, size_t &index_r) {
+int Strat2::run(std::vector values, size_t &index_l, size_t &index_r) {
 	std::vector<size_t> negative_indices;
-	size_t ind_l = 0, ind_r = count - 1;
+	size_t ind_l = 0, ind_r = values.size() - 1;
 
-	for (size_t i = 0; i < count; i++) {
-		if (int_arr[i] < 0) {
+	for (size_t i = 0; i < values.size(); i++) {
+		if (values[i] < 0) {
 			negative_indices.push_back(i);
 		}
 	}
@@ -20,7 +20,7 @@ int Strat2::run(int *int_arr, size_t count, size_t &index_l, size_t &index_r) {
 	for (size_t i = 0; i < negative_indices.size(); i++) {
 		for (size_t j = i; j < negative_indices.size(); j++) {
 			for (size_t k = negative_indices[i]; k < negative_indices[j]; k++) {
-				current += int_arr[k];
+				current += values[k];
 			}
 
 			if (smallest == NULL || smallest > current) {

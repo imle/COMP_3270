@@ -10,7 +10,7 @@
 
 class Strat2 : public AbstractStrategy {
 public:
-	int run(int *int_arr, size_t count, size_t &index_l, size_t &index_r) override;
+	int run(std::vector values, size_t &index_l, size_t &index_r) override;
 };
 
 

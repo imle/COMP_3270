@@ -4,14 +4,14 @@
 
 #include "Strat1.h"
 
-int Strat1::run(int *int_arr, size_t count, size_t &index_l, size_t &index_r) {
+int Strat1::run(std::vector values, size_t &index_l, size_t &index_r) {
 	int smallest = NULL, current = 0;
-	size_t ind_l = 0, ind_r = count - 1;
+	size_t ind_l = 0, ind_r = values.size() - 1;
 
-	for (size_t i = 0; i < count - 1; i++) {
-		for (size_t j = i; j < count - 1; j++) {
+	for (size_t i = 0; i < values.size() - 1; i++) {
+		for (size_t j = i; j < values.size() - 1; j++) {
 			for (size_t k = i; k < j; k++) {
-				current += int_arr[k];
+				current += values[k];
 			}
 
 			if (smallest == NULL || smallest > current) {

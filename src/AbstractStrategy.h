@@ -7,6 +7,7 @@
 
 
 #include <utility>
+#include <vector>
 
 class AbstractStrategy {
 protected:
@@ -17,7 +18,7 @@ protected:
 public:
 	void printFinalValues(void);
 
-	virtual int run(int *int_arr, size_t count, size_t &index_l, size_t &index_r) = 0;
+	virtual int run(std::vector values, size_t &index_l, size_t &index_r) = 0;
 };
 
 
