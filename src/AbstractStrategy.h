@@ -12,7 +12,7 @@ class AbstractStrategy {
 protected:
 	int smallest;
 
-	std::pair<int, int> range;
+	std::pair<size_t, size_t> range;
 
 public:
 	void printFinalValues(void);
