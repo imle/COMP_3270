@@ -17,7 +17,7 @@ protected:
 public:
 	void printFinalValues(void);
 
-	virtual void run(int *int_arr, size_t count, unsigned int &index_lower, unsigned int &index_higher) = 0;
+	virtual int run(int *int_arr, size_t count, size_t &index_l, size_t &index_r) = 0;
 };
 
 

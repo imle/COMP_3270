@@ -4,6 +4,6 @@
 
 #include "Strat2.h"
 
-void Strat2::run(int *int_arr, size_t count, unsigned int &index_lower, unsigned int &index_higher) {
-
+int Strat2::run(int *int_arr, size_t count, size_t &index_l, size_t &index_r) {
+	return 0;
 }

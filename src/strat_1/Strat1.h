@@ -10,7 +10,7 @@
 
 class Strat1 : public AbstractStrategy {
 public:
-	void run(int *int_arr, size_t count, unsigned int &index_lower, unsigned int &index_higher) override;
+	int run(int *int_arr, size_t count, size_t &index_l, size_t &index_r) override;
 };
 
 
