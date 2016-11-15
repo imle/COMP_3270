@@ -41,28 +41,33 @@ algorithm-2 (A: Array [1 ... n] of integer)
 
 
 algorithm-3 (A: Array [l ... r] of integer)
-    smallest_ending_here := 0
-    ind_l_ending_here := nil
-    ind_r_ending_here := nil
-
-    smallest := 0
-    ind_l := nil
-    ind_r := nil
-
-    for i := 1 to (n-1)
-        smallest_ending_here = smallest_ending_here + A[i]
-
-        if smallest_ending_here > 0
-            smallest_ending_here = 0
-            ind_l_ending_here = i + 1
-            ind_r_ending_here = ind_l_ending_here
-
-        if smallest > smallest_ending_here
-            smallest := smallest_ending_here
-            ind_l := ind_l_ending_here
-            ind_r := i
-
-        if smallest > A[i]
-            smallest := A[i]
-
-    return (smallest, ind_l, ind_r)
+1       smallest_ending_here := 0
+2       ind_l_ending_here := nil
+3       ind_r_ending_here := nil
+4       smallest := 0
+5       ind_l := nil
+6       ind_r := nil
+7       has_negative := false
+8       for i := 1 to (n-1)
+9           if A[i] < 0
+10              has_negative := true
+11              break
+12          if A[i] < smallest
+13              smallest := A[i]
+14              ind_l := i
+15              ind_r := i
+16      if !has_negative
+17          return (smallest, ind_l, ind_r)
+18      for i := 1 to (n-1)
+19          smallest_ending_here = smallest_ending_here + A[i]
+20          if smallest_ending_here > 0
+21              smallest_ending_here = 0
+22              ind_l_ending_here = i + 1
+23              ind_r_ending_here = ind_l_ending_here
+24          if smallest > smallest_ending_here
+25              smallest := smallest_ending_here
+26              ind_l := ind_l_ending_here
+27              ind_r := i
+28          if smallest > A[i]
+29              smallest := A[i]
+30      return (smallest, ind_l, ind_r)
