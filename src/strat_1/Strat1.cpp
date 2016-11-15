@@ -2,10 +2,20 @@
 // Created by Steven Imle on 10/24/16.
 //
 
+#include <cstdlib>
 #include "Strat1.h"
 
-int Strat1::run(std::vector values, size_t &index_l, size_t &index_r) {
-	int smallest = NULL, current = 0;
+int Strat1::run(std::vector<int> values, size_t &index_l, size_t &index_r) {
+	if (values.size() == 0) {
+		std::exit(1);
+	}
+
+	int smallest = values[0], current = 0;
+
+	if (values.size() == 1) {
+		return smallest;
+	}
+
 	size_t ind_l = 0, ind_r = values.size() - 1;
 
 	for (size_t i = 0; i < values.size() - 1; i++) {
@@ -14,7 +24,7 @@ int Strat1::run(std::vector values, size_t &index_l, size_t &index_r) {
 				current += values[k];
 			}
 
-			if (smallest == NULL || smallest > current) {
+			if (smallest > current) {
 				smallest = current;
 				ind_l = i;
 				ind_r = j;

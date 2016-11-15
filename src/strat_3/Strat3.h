@@ -11,7 +11,7 @@
 
 class Strat3 : public AbstractStrategy {
 public:
-	int run(std::vector values, size_t &index_l, size_t &index_r) override;
+	int run(std::vector<int> values, size_t &index_l, size_t &index_r) override;
 };
 
 

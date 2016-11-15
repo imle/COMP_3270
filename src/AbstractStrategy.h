@@ -18,7 +18,7 @@ protected:
 public:
 	void printFinalValues(void);
 
-	virtual int run(std::vector values, size_t &index_l, size_t &index_r) = 0;
+	virtual int run(std::vector<int> values, size_t &index_l, size_t &index_r) = 0;
 };
 
 

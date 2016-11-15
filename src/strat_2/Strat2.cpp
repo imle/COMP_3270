@@ -3,9 +3,20 @@
 //
 
 #include <vector>
+#include <cstdlib>
 #include "Strat2.h"
 
-int Strat2::run(std::vector values, size_t &index_l, size_t &index_r) {
+int Strat2::run(std::vector<int> values, size_t &index_l, size_t &index_r) {
+	if (values.size() == 0) {
+		std::exit(1);
+	}
+
+	int smallest = values[0], current = 0;
+
+	if (values.size() == 1) {
+		return smallest;
+	}
+
 	std::vector<size_t> negative_indices;
 	size_t ind_l = 0, ind_r = values.size() - 1;
 
@@ -15,15 +26,13 @@ int Strat2::run(std::vector values, size_t &index_l, size_t &index_r) {
 		}
 	}
 
-	int smallest = NULL, current = 0;
-
 	for (size_t i = 0; i < negative_indices.size(); i++) {
 		for (size_t j = i; j < negative_indices.size(); j++) {
 			for (size_t k = negative_indices[i]; k < negative_indices[j]; k++) {
 				current += values[k];
 			}
 
-			if (smallest == NULL || smallest > current) {
+			if (smallest > current) {
 				smallest = current;
 				ind_l = i;
 				ind_r = j;
