@@ -1,0 +1,62 @@
+algorithm-1 (A: Array [1 ... n] of integer)
+1       smallest := nil
+2       ind_l := nil
+3       ind_r := nil
+4       current := 0
+5       for i := 1 to (n-1)
+6           for j := i to (n-1)
+7               for k := i to j
+8                   current := current + A[k]
+9               if smallest = nil or smallest > current
+10                  smallest := current
+11                  ind_l := i
+12                  ind_r := j
+13              current := 0
+14      return (smallest, ind_l, ind_r)
+
+
+
+algorithm-2 (A: Array [1 ... n] of integer)
+1       negatives := []
+2       m = 0
+3       for i := 1 to (n-1)
+4           if A[i] < 0
+5               negatives.append(i)
+6               m = m + 1
+7       smallest := nil
+8       ind_l := nil
+9       ind_r := nil
+10      current := 0
+11      for i := 1 to (m-1)
+12          for j := i to (m-1)
+13              for k := negatives[i] to negatives[j]
+14                  current := current + A[k]
+15              if smallest = nil or smallest > current
+16                  smallest := current
+17                  ind_l := i
+18                  ind_r := j
+19              current := 0
+20      return (smallest, ind_l, ind_r)
+
+
+
+algorithm-3 (A: Array [l ... r] of integer)
+1       top_smallest := nil
+2       top_ind_l := nil
+3       top_ind_r := nil
+4       bot_smallest := nil
+5       bot_ind_l := nil
+6       bot_ind_r := nil
+7       if l = r
+8           return (A[l], l, r)
+9       current := 0
+10      for i := l to (r-1)
+11          current := current + A[i]
+12      (top_smallest, top_ind_l, top_ind_r) := algorithm-3(A[l ... r-1])
+13      (bot_smallest, bot_ind_l, bot_ind_r) := algorithm-3(A[l+1 ... r])
+14      if current < top_smallest and current < bot_smallest
+15          return (current, l, r)
+16      else if top_smallest < current and top_smallest < bot_smallest
+17          return (top_smallest, top_ind_l, top_ind_r)
+18      else
+19          return (bot_smallest, bot_ind_l, bot_ind_r)
