@@ -1,6 +1,9 @@
 Steven Imle
 ski0005@auburn.edu
 
+
+### Files
+
 info
  |- pseudocode.txt
  |- specification.pdf
@@ -32,7 +35,7 @@ src
 
 
 
-Compilation
+### Compilation
 The source code for this project was developed in CLion 2016.3 EAP.
 The project can be compiled by typing `make` in the root directory.
 
@@ -49,6 +52,27 @@ The work done to calculate the final T(n) values is included in a scanned pdf
 under the name `./documents/calculations.pdf`
 
 
+
+### Ranking
+* Strategy 3
+* Strategy 2
+* Strategy 1
+
+These algorithms were developed in the order they are numbered but ended up becoming more
+efficient per each new strategy.
+
+Strategy 3 is clearly the least efficient as indicated by the graph but also because no
+matter what it will always test every possible combination of numbers regardless of whether
+the number it starts or ends on is negative.
+
+Strategy 2's worst case shows that while it is not always more efficient than strategy 3,
+it will generally be an order of magnitude faster than it with larger sets of numbers as
+long as there is a relatively unskewed distribution of numbers.
+
+Strategy 1 is far and above the winner. Since it runs in linear time.
+
+
+### Other
 
 NO-PLAGIARISM CERTIFICATION: I certify that I wrote the code I am submitting. I did not copy whole or parts of it
 from another student or have another person write the code for me. Any code I am reusing in my program is clearly

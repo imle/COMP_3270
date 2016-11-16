@@ -64,7 +64,7 @@ void FileHandler::addTimeValues(std::vector<double> strat_time) {
 	out_file.open(this->file_name_time, std::ofstream::out | std::ofstream::app);
 
 	for (std::vector<double>::iterator iter_st = strat_time.begin(); iter_st != strat_time.end(); iter_st++) {
-		out_file << *iter_st;
+		out_file << std::fixed << *iter_st << std::scientific;
 
 		if (iter_st + 1 != strat_time.end()) {
 			out_file << ", ";
