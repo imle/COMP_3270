@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 #include "src/strat_1/Strat1.h"
 #include "src/strat_2/Strat2.h"
 #include "src/strat_3/Strat3.h"
@@ -11,6 +12,8 @@ int main(int argc, char *argv[]) {
 	ArgParser *ap = new ArgParser(argc, argv);
 	FileHandler *fh = new FileHandler(ap->getFileNameInput(), ap->getFileNameOutput(), ap->getFileNameTime());
 	ValueGenerator *vg = new ValueGenerator();
+
+	FileLogger *logger = new FileLogger("log.txt");
 
 	std::vector<int> values = fh->getInputValues();
 
@@ -40,15 +43,24 @@ int main(int argc, char *argv[]) {
 	                              9000, 9500, 10000
 	};
 
-	StrategyTester *st = new StrategyTester();
-	st->addStrategy(s1);
-	st->addStrategy(s2);
-	st->addStrategy(s3);
+	StrategyTester *st = new StrategyTester(logger);
+	st->addStrategy(s1, "Strat1");
+	st->addStrategy(s2, "Strat2");
+	st->addStrategy(s3, "Strat3");
 
+	std::stringstream s;
 	for (std::vector<int>::iterator iter = size_set.begin(); iter != size_set.end(); iter++) {
 		values = vg->genRandomValues(*iter);
 
+		s << "Running Set Size: " << *iter;
+		logger->info(s.str());
+		s.str("");
+
 		st->runTest(values);
+
+		s << "Finished Set Size: " << *iter;
+		logger->info(s.str());
+		s.str("");
 	}
 
 	strategy_time_map times = st->getTimeValues();
