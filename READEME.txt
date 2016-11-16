@@ -9,13 +9,13 @@ info
 src
  |- strat_1
  |   |- Strat1.cpp
- |   |- Strat1.h
+ |   \- Strat1.h
  |- strat_2
  |   |- Strat2.cpp
- |   |- Strat2.h
+ |   \- Strat2.h
  |- strat_3
  |   |- Strat3.cpp
- |   |- Strat3.h
+ |   \- Strat3.h
  |- AbstractStrategy.h
  |- ArgParser.cpp
  |- ArgParser.h
@@ -28,7 +28,8 @@ src
  |- StrategyTester.cpp
  |- StrategyTester.h
  |- ValueGenerator.cpp
- |- ValueGenerator.h
+ \- ValueGenerator.h
+
 
 
 Compilation
@@ -41,6 +42,11 @@ of the two following links if your editor does not have markdown support.
 * http://dillinger.io/
 * https://jbt.github.io/markdown-editor/
 
+
+
+Time Complexity Calculations
+The work done to calculate the final T(n) values is included in a scanned pdf
+under the name `./documents/calculations.pdf`
 
 
 
