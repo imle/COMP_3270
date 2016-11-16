@@ -103,3 +103,12 @@ void FileLogger::log(LOG_LEVEL level, const std::string message) {
 
 	log_file.close();
 }
+
+FileConsoleLogger::FileConsoleLogger(const std::string &file_name) : FileLogger(file_name) {
+
+}
+
+void FileConsoleLogger::log(LOG_LEVEL level, const std::string message) {
+	FileLogger::log(level, message);
+	ConsoleLogger::log(level, message);
+}

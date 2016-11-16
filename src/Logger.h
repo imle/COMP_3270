@@ -47,18 +47,25 @@ protected:
 	const std::string getDateString() const;
 };
 
-class ConsoleLogger : public Logger {
+class ConsoleLogger : virtual public Logger {
 public:
 	void log(LOG_LEVEL level, const std::string message) override;
 };
 
-class FileLogger : public Logger {
+class FileLogger : virtual public Logger {
 protected:
 	std::string file_name;
 public:
 	FileLogger(const std::string &file_name);
 
 public:
+	void log(LOG_LEVEL level, const std::string message) override;
+};
+
+class FileConsoleLogger : virtual public FileLogger, virtual public ConsoleLogger {
+public:
+	FileConsoleLogger(const std::string &file_name);
+
 	void log(LOG_LEVEL level, const std::string message) override;
 };
 
