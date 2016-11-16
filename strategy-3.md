@@ -1,4 +1,4 @@
-## Strategy 3 - [\(Reverse of Kadane's Algorithm\)](https://en.wikipedia.org/wiki/Maximum_subarray_problem)
+# Strategy 3 - [\(Reverse of Kadane's Algorithm\)](https://en.wikipedia.org/wiki/Maximum_subarray_problem)
 
 Walk through the array and find the first negative value, set the starting point
 to this index and the end point to the same. Add the next value to it. If the
@@ -8,7 +8,7 @@ greater than or equal to 0, do not change anything but step through the array
 until a new negative number is found and perform the same steps, only changing
 the value of smallest if the current sum is smaller.
 
-### Pseudo-code
+## Pseudo-code
 
     algorithm-3 (A: Array [l ... r] of integer)
     1       smallest_ending_here := 0
@@ -41,10 +41,10 @@ the value of smallest if the current sum is smaller.
     28      return (smallest, ind_l, ind_r)
 
 
-### Time Complexity
+## Time Complexity
 
 | Step   | Cost | Runs  | Total |
-| ------:| ----:|:-----:| -----:|
+| ------:| ----:|:-----:|:-----:|
 | **1**  | 1    | 1     | 1     |
 | **2**  | 1    | 1     | 1     |
 | **3**  | 1    | 1     | 1     |
@@ -74,8 +74,5 @@ the value of smallest if the current sum is smaller.
 | **27** | 4    | n     | 4n    |
 | **28** | 1    | 1     | 1     |
 
-
-T(n)  = 1 + 1 + 1 + 1 + 1 + 1 + n + 1 + 4n + n + n + 5n + 4n + 2n + 2n + 2
-        + 1 + n + 1 + 6n + 2n + n + 3n + 3n + 2n + 2n + 2n + 5n + 4n + 1
 
 T(n) = 12 + 51n

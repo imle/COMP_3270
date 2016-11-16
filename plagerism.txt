@@ -23,6 +23,8 @@ src
  |- err_codes.h
  |- FileHandler.cpp
  |- FileHandler.h
+ |- Logger.cpp
+ |- Logger.h
  |- StrategyTester.cpp
  |- StrategyTester.h
  |- ValueGenerator.cpp
