@@ -56,7 +56,7 @@ int main(int argc, char *argv[]) {
 		logger->info(s.str());
 		s.str("");
 
-		st->runTest(*iter, 100);
+		st->runTest(*iter);
 
 		s << "Finished Set Size: " << *iter;
 		logger->info(s.str());

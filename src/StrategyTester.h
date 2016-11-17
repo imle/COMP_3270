@@ -15,7 +15,7 @@
 typedef std::map<AbstractStrategy *, std::vector<double>> strategy_time_map;
 
 class StrategyTester {
-	const int RUN_COUNT = 5;
+	const int RUN_COUNT = 5000;
 
 private:
 	Logger *logger;

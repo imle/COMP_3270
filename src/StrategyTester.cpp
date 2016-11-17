@@ -23,6 +23,8 @@ void StrategyTester::addStrategy(AbstractStrategy *strategy, const std::string s
 void StrategyTester::runTest(int size, int run_times) {
 	std::stringstream s;
 
+	std::vector<int> values = this->vg->genRandomValues(size);
+
 	for (std::vector<AbstractStrategy*>::iterator iter = this->strats.begin(); iter != this->strats.end(); iter++) {
 		size_t ind_l = 0, ind_r = 0;
 		double total_time = 0;
@@ -32,8 +34,6 @@ void StrategyTester::runTest(int size, int run_times) {
 		s.str("");
 
 		for (int i = 0; i < run_times; i++) {
-			std::vector<int> values = this->vg->genRandomValues(size);
-
 			std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
 
 			(*iter)->run(values, ind_l, ind_r);
