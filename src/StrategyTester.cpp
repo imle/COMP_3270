@@ -3,7 +3,6 @@
 //
 
 #include "StrategyTester.h"
-#include "ValueGenerator.h"
 #include <chrono>
 #include <sstream>
 
